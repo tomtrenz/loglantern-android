@@ -8,14 +8,12 @@ plugins {
 
 android {
     namespace = "cz.splnsito.mrthom.loglantern"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "cz.splnsito.mrthom.loglantern"
         minSdk = 29
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
