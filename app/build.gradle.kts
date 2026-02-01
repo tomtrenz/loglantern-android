@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "cz.splnsito.mrthom.loglantern"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "cz.splnsito.mrthom.loglantern"
