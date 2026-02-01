@@ -33,10 +33,30 @@ fun SettingsScreen(
                 style = androidx.compose.material3.MaterialTheme.typography.headlineMedium
             )
             Spacer(Modifier.height(24.dp))
+
             Text(
                 text = "Base URL: ${uiState.baseUrl ?: "Not set"}",
-                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge
+                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
             )
+            Spacer(Modifier.height(8.dp))
+
+            Text(
+                text = "Username: ${uiState.username ?: "Not set"}",
+                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
+            )
+            Spacer(Modifier.height(8.dp))
+
+            Text(
+                text = "Token: ${uiState.token?.take(20) ?: "Not set"}${if (uiState.token != null && uiState.token!!.length > 20) "..." else ""}",
+                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
+            )
+            Spacer(Modifier.height(8.dp))
+
+            Text(
+                text = "Token Expiry: ${uiState.tokenExpiry ?: "Not set"}",
+                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
+            )
+
             Spacer(Modifier.height(32.dp))
             PrimaryButton(
                 text = "Logout",

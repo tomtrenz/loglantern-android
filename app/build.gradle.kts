@@ -77,6 +77,9 @@ dependencies {
     // Network
     implementation(libs.okhttp)
     implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp.logging.interceptor)
+
 
     // Testing
     testImplementation(libs.junit)
