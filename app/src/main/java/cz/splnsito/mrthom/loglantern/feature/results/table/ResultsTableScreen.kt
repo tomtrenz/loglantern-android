@@ -44,7 +44,7 @@ fun ResultsTableScreen(
                 value = uiState.searchQuery,
                 onValueChange = { viewModel.updateSearchQuery(it) },
                 label = { Text("SPL Query") },
-                placeholder = { Text("search index=main | head 100") },
+                placeholder = { Text("search index=* | head 100 | table _time _raw") },
                 modifier = Modifier.fillMaxWidth(),
                 enabled = !uiState.isLoading,
                 singleLine = false,
