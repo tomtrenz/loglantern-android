@@ -25,29 +25,27 @@ fun ResultsTableScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    Scaffold { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
-        ) {
-            // Header
-            Text(
-                text = "Search Results Table",
-                style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        // Header
+        Text(
+            text = "📋 Search Results Table",
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
 
-            // Search Input
-            OutlinedTextField(
-                value = uiState.searchQuery,
-                onValueChange = { viewModel.updateSearchQuery(it) },
-                label = { Text("SPL Query") },
-                placeholder = { Text("search index=* | head 100 | table _time _raw") },
-                modifier = Modifier.fillMaxWidth(),
-                enabled = !uiState.isLoading,
-                singleLine = false,
+        // Search Input
+        OutlinedTextField(
+            value = uiState.searchQuery,
+            onValueChange = { viewModel.updateSearchQuery(it) },
+            label = { Text("SPL Query") },
+            placeholder = { Text("search index=* | head 100 | table _time _raw") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = !uiState.isLoading,
+            singleLine = false,
                 minLines = 2,
                 maxLines = 4
             )
@@ -125,7 +123,7 @@ fun ResultsTableScreen(
             }
         }
     }
-}
+
 
 @Composable
 fun DataTable(

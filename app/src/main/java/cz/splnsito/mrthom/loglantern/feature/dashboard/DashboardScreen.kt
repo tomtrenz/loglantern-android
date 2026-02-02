@@ -14,41 +14,36 @@ import cz.splnsito.mrthom.loglantern.core.ui.components.PrimaryButton
 
 @Composable
 fun DashboardScreen(
-    onNavigateToTable: () -> Unit,
-    onNavigateToPieChart: () -> Unit,
-    onNavigateToSettings: () -> Unit,
+    onNavigateToTable: () -> Unit = {},
+    onNavigateToPieChart: () -> Unit = {},
+    onNavigateToSettings: () -> Unit = {},
     viewModel: DashboardViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    Scaffold { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "Dashboard",
-                style = androidx.compose.material3.MaterialTheme.typography.headlineMedium
-            )
-            Spacer(Modifier.height(32.dp))
-            PrimaryButton(
-                text = "View Table",
-                onClick = onNavigateToTable
-            )
-            Spacer(Modifier.height(16.dp))
-            PrimaryButton(
-                text = "View Pie Chart",
-                onClick = onNavigateToPieChart
-            )
-            Spacer(Modifier.height(16.dp))
-            PrimaryButton(
-                text = "Settings",
-                onClick = onNavigateToSettings
-            )
-        }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "🏠 Dashboard",
+            style = androidx.compose.material3.MaterialTheme.typography.headlineMedium
+        )
+        Spacer(Modifier.height(32.dp))
+
+        Text(
+            text = "Vítejte v LogLantern",
+            style = androidx.compose.material3.MaterialTheme.typography.bodyLarge
+        )
+        Spacer(Modifier.height(16.dp))
+
+        Text(
+            text = "Použijte navigační menu níže pro přepínání mezi obrazovkami",
+            style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+            color = androidx.compose.material3.MaterialTheme.colorScheme.onSurfaceVariant
+        )
     }
 }

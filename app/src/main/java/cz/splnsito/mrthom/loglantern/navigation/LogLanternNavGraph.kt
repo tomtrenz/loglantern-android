@@ -38,17 +38,13 @@ fun LogLanternNavGraph(navController: NavHostController) {
             )
         }
         composable(LogLanternRoutes.DASHBOARD) {
-            DashboardScreen(
-                onNavigateToTable = { navController.navigate(LogLanternRoutes.RESULTS_TABLE) },
-                onNavigateToPieChart = { navController.navigate(LogLanternRoutes.RESULTS_PIE_CHART) },
-                onNavigateToSettings = { navController.navigate(LogLanternRoutes.SETTINGS) }
-            )
+            DashboardScreen()
         }
         composable(LogLanternRoutes.SETTINGS) {
             SettingsScreen(
                 onLogout = {
                     navController.navigate(LogLanternRoutes.LOGIN) {
-                        popUpTo(LogLanternRoutes.DASHBOARD) { inclusive = true }
+                        popUpTo(0) { inclusive = true }
                     }
                 }
             )

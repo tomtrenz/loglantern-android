@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class ResultsTableUiState(
-    val searchQuery: String = "search index=main earliest=-1h | head 100",
+    val searchQuery: String = "search index=* | head 100 | table _time _raw",
     val isLoading: Boolean = false,
     val error: String? = null,
     val columns: List<String> = emptyList(),

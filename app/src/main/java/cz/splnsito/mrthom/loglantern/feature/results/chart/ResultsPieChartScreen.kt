@@ -27,22 +27,20 @@ fun ResultsPieChartScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    Scaffold { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
-                .verticalScroll(rememberScrollState())
-        ) {
-            Text(
-                text = "📊 Splunk Statistiky",
-                style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState())
+    ) {
+        Text(
+            text = "📊 Splunk Statistiky",
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
 
-            // Search Query Input
-            OutlinedTextField(
+        // Search Query Input
+        OutlinedTextField(
                 value = uiState.searchQuery,
                 onValueChange = { viewModel.updateSearchQuery(it) },
                 label = { Text("Search dotaz (se stats)") },
@@ -217,7 +215,7 @@ fun ResultsPieChartScreen(
             }
         }
     }
-}
+
 
 @Composable
 private fun PieChart(data: List<ChartDataPoint>) {

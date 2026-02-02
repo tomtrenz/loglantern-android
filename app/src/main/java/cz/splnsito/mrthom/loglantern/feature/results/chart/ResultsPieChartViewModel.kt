@@ -16,7 +16,7 @@ data class ChartDataPoint(
 )
 
 data class ResultsPieChartUiState(
-    val searchQuery: String = "search index=main | stats count by src_ip",
+    val searchQuery: String = "search index=netflow | head 10000 | stats count by src_addr",
     val chartData: List<ChartDataPoint> = emptyList(),
     val isLoading: Boolean = false,
     val errorMessage: String? = null,
