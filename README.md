@@ -5,7 +5,27 @@ and visualize log data using a mobile-friendly interface.
 
 The application is built as a student project with a focus on modern Android development practices.
 
+---
 
+## ⚠️ BEZPEČNOSTNÍ VAROVÁNÍ / SECURITY WARNING
+
+### 🚨 SSL Certificate Bypass
+
+**CZ:** Tato aplikace obsahuje kód pro obcházení SSL certifikátové validace (pro vývoj/testování). 
+Google Play Protect může označit debug build jako "harmful app". **Release build má toto automaticky VYPNUTO.**
+
+**EN:** This application contains SSL certificate bypass code (for development/testing). 
+Google Play Protect may flag debug builds as "harmful app". **Release builds have this automatically DISABLED.**
+
+**Pro více informací / For more information:**
+- [GOOGLE_PLAY_PROTECT_RESENI.md](./GOOGLE_PLAY_PROTECT_RESENI.md) - Kompletní řešení
+- [SECURITY_SSL_BYPASS.md](./SECURITY_SSL_BYPASS.md) - Technická dokumentace
+
+**Build typy / Build types:**
+- 🔧 **Debug:** SSL bypass ZAPNUTÝ (pro testování se self-signed certifikáty)
+- 🚀 **Release:** SSL bypass VYPNUTÝ (bezpečné pro Google Play)
+
+---
 
 ## 📸 
 

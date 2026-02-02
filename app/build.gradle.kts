@@ -24,13 +24,28 @@ android {
     }
 
     buildTypes {
+        debug {
+            // Allow self-signed certificates in development/testing
+            buildConfigField("boolean", "ALLOW_SELF_SIGNED_CERTS", "true")
+            buildConfigField("boolean", "ENABLE_LOGGING", "true")
+        }
         release {
-            isMinifyEnabled = false
+            // Disable SSL bypass for production - required for Google Play
+            buildConfigField("boolean", "ALLOW_SELF_SIGNED_CERTS", "false")
+            buildConfigField("boolean", "ENABLE_LOGGING", "false")
+
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // TODO: Add signing config for release
+            // signingConfig = signingConfigs.getByName("release")
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

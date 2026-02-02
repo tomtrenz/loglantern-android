@@ -1,5 +1,6 @@
 package cz.splnsito.mrthom.loglantern.navigation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -58,6 +59,9 @@ fun MainScaffold(
             }
         }
     ) { paddingValues ->
-        content(navController)
+        // NavHost handles its own padding, so we pass the paddingValues through modifier
+        Box(modifier = Modifier.padding(paddingValues)) {
+            content(navController)
+        }
     }
 }
